@@ -21,3 +21,13 @@
   margin-left: auto;
   margin-right: auto;
 }
+.valid-message{
+
+
+        /*display: none;*/
+        width: 100%;
+        margin-top: 0.25rem;
+        font-size: 100%;
+        color: #dc3545;
+    }
+
