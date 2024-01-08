@@ -690,8 +690,15 @@ select {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
+.float-right {
+  float: right;
+}
 .m-0 {
   margin: 0px;
+}
+.my-2 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 .mb-0 {
   margin-bottom: 0px;
@@ -717,11 +724,26 @@ select {
 .mt-3 {
   margin-top: 0.75rem;
 }
+.ml-3 {
+  margin-left: 0.75rem;
+}
+.mr-1 {
+  margin-right: 0.25rem;
+}
+.table {
+  display: table;
+}
 .h-6 {
   height: 1.5rem;
 }
+.h-4 {
+  height: 1rem;
+}
 .w-6 {
   width: 1.5rem;
+}
+.w-4 {
+  width: 1rem;
 }
 .shrink-0 {
   flex-shrink: 0;
@@ -731,6 +753,9 @@ select {
 }
 .flex-row-reverse {
   flex-direction: row-reverse;
+}
+.text-nowrap {
+  text-wrap: nowrap;
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -748,7 +773,16 @@ select {
 .pr-3 {
   padding-right: 0.75rem;
 }
+.pb-5 {
+  padding-bottom: 1.25rem;
+}
+.pt-3 {
+  padding-top: 0.75rem;
+}
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 
