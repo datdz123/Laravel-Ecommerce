@@ -10,8 +10,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $admin= Auth::guard('admin')->user();
-        echo 'Welcome to ' . $admin->name . ' dashboard';
+        /*$admin= Auth::guard('admin')->user();
+        echo 'Welcome to ' . $admin->name . ' dashboard';*/
+        return view('admin.dashboard');
     }
     public function logout()
     {
