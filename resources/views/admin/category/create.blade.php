@@ -9,7 +9,7 @@
                     <h1>Create Category</h1>
                 </div>
                 <div class="col-sm-6 text-right">
-                    <a href="categories.html" class="btn btn-primary">Back</a>
+                    <a href="{{route('categories.list')}}" class="btn btn-primary">Back</a>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
     <section class="content">
         <!-- Default box -->
         <div class="container-fluid">
-            <form action="" method="post" name="categoryForm" id="categoryForm"
+            <form action="{{route('categories.store')}}" method="post" name="categoryForm" id="categoryForm"
             >
                 @csrf
             <div class="card">
@@ -59,8 +59,10 @@
         <!-- /.card -->
     </section>
 @endsection
+{{--<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>--}}
+<script>
 
+</script>
 @section('custom-js')
-    <script>
-    </script>
+
 @endsection

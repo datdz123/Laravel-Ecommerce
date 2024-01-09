@@ -4,12 +4,23 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
+
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // code to handle the index action
+//        $categories = Category::all(); // Lấy tất cả các bản ghi từ bảng categories
+
+        $categories = Category::when($request->search, function ($query, $searchTerm) {
+            return $query->where('name', 'like', '%' . $searchTerm . '%')
+                ->orWhere('slug', 'like', '%' . $searchTerm . '%');
+        })->orderBy('id')->paginate($perPage = 10);
+
+
+
+        return view('admin.category.list', ['categories' => $categories]);
     }
 
     public function create()
@@ -19,7 +30,11 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
-        // code to handle the store action
+        $data = $request->all();
+
+        $category = Category::create($data);
+
+        return redirect()->route('categories.list')->with('success', 'Category created successfully');
     }
 
     public function edit($id)
