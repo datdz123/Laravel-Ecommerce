@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TempImage;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -33,6 +34,14 @@ class CategoryController extends Controller
         $data = $request->all();
 
         $category = Category::create($data);
+        if(!empty($request->image_id)){
+            $tempImage=TempImage::find($request->image_id);
+            $extArray=explode('.',$tempImage->name);
+            $ext=last($extArray);
+            $newImageName=$category->id.'.'.$ext;
+            $category->image=$newImageName;
+            $category->save();
+        }
 
         return redirect()->route('categories.list')->with('success', 'Category created successfully');
     }

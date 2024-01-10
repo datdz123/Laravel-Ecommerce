@@ -16,6 +16,8 @@
 
 
     <link rel="stylesheet" href= " {{ asset('admin-asset/css/custom.css')}}">
+    <meta name="_token" content="{{ csrf_token() }}">
+
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -96,6 +98,8 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('admin-asset/js/adminlte.min.js')}}"></script>
 <script src="{{ asset('admin-asset/plugins/dropzone/min/dropzone.min.js')}}"></script>
+{{--<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--}}
+<!-- Các mã JavaScript khác -->
 
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin-asset/js/demo.js')}}"></script>
