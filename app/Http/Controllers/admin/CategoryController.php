@@ -48,7 +48,7 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        // code to handle the edit action
+       return view('admin.category.edit');
     }
 
     public function update(Request $request, $id)
