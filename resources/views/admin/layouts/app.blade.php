@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('admin-asset/plugins/fontawesome-free/css/all.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('admin-asset/css/adminlte.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('admin-asset/plugins/dropzone/min/dropzone.css')}}">
 
 
     <link rel="stylesheet" href= " {{ asset('admin-asset/css/custom.css')}}">
@@ -82,7 +83,7 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
 
-        <strong>Copyright &copy; 2014-2022 AmazingShop All rights reserved.
+        <strong>Copyright &copy; 2024-2025 Phạm Quang Đạt All rights reserved.
         </strong>
     </footer>
 
@@ -94,6 +95,8 @@
 <script src="{{ asset('admin-asset/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('admin-asset/js/adminlte.min.js')}}"></script>
+<script src="{{ asset('admin-asset/plugins/dropzone/min/dropzone.min.js')}}"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin-asset/js/demo.js')}}"></script>
 @yield('custom-js')
