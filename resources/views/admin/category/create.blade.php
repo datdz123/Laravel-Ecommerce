@@ -28,13 +28,13 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="name">Name</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name">
+                                    <input required type="text" name="name" id="name" class="form-control" placeholder="Name">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="slug">Slug</label>
-                                    <input type="text" name="slug" id="slug" class="form-control" placeholder="Slug">
+                                    <input required type="text" name="slug" id="slug" class="form-control" placeholder="Slug">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -51,7 +51,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="email">Status</label>
-                                    <select name="status" id="status" class="form-control">
+                                    <select required name="status" id="status" class="form-control">
                                         <option value="1">Active</option>
                                         <option value="0">Block</option>
                                     </select>

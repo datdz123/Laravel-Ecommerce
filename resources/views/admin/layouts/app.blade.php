@@ -80,6 +80,16 @@
     </aside>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        @if(session('success'))
+            <div id="successAlert" class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ session('success') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+
+        @endif
         @yield('content')
     </div>
     <!-- /.content-wrapper -->
@@ -104,5 +114,12 @@
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin-asset/js/demo.js')}}"></script>
 @yield('custom-js')
+
+<script>
+    // Automatically close the success alert after 3 seconds
+    setTimeout(function() {
+        $('#successAlert').alert('close');
+    }, 3000);
+</script>
 </body>
 </html>

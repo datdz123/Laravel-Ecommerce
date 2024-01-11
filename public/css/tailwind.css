@@ -734,6 +734,9 @@ select {
 .mt-3 {
   margin-top: 0.75rem;
 }
+.flex {
+  display: flex;
+}
 .table {
   display: table;
 }
@@ -760,6 +763,15 @@ select {
 }
 .flex-row-reverse {
   flex-direction: row-reverse;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
 }
 .text-nowrap {
   text-wrap: nowrap;

@@ -48,11 +48,26 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-       return view('admin.category.edit');
+        $category = Category::find($id);
+
+        // If the category doesn't exist, redirect back with an error message
+        if (!$category) {
+            return redirect()->back()->with('error', 'Category not found');
+        }
+
+        // Pass the category to the view
+        return view('admin.category.edit', ['category' => $category]);
     }
 
     public function update(Request $request, $id)
     {
         // code to handle the update action
+    }
+
+    public function delete($id)
+    {
+        $delete = Category::find($id)->delete();
+
+        return redirect()->route('categories.list')->with('success', 'Category deleted successfully');
     }
 }
