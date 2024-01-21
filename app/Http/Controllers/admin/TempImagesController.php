@@ -28,3 +28,4 @@ class TempImagesController extends Controller
             }
     }
 }
+
