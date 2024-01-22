@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\TempImage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -21,6 +22,7 @@ class CategoryController extends Controller
 
 
 
+
         return view('admin.category.list', ['categories' => $categories]);
     }
 
@@ -28,6 +30,10 @@ class CategoryController extends Controller
     {
     return view('admin.category.create');
     }
+
+
+
+
 
     public function store(Request $request)
     {
@@ -41,6 +47,7 @@ class CategoryController extends Controller
             $newImageName=$category->id.'.'.$ext;
             $category->image=$newImageName;
             $category->save();
+            File::move(public_path() . '/tempImage/' . $tempImage->name, public_path() . '/images/' . $newImageName);
         }
 
         return redirect()->route('categories.list')->with('success', 'Category created successfully');
