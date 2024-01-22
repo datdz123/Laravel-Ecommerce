@@ -24,6 +24,7 @@
     <div class="card card-outline card-primary">
         <div class="card-header text-center">
             <a href="#" class="h3">Admin Dat Dep Trai</a>
+                <h1>    </h1>
         </div>
         @include('admin.message')
         <div class="card-body">
