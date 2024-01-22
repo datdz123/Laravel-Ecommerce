@@ -1,6 +1,6 @@
 @extends('layout.index')
 @section('content-page')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset('images/images/bg_2.jpg')}}');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
@@ -17,7 +17,7 @@
             <div class="row d-flex">
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/image_1.jpg');">
+                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('{{asset('images/images/image_1.jpg')}}');">
                         </a>
                         <div class="text p-4">
                             <div class="meta mb-2">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/image_2.jpg');">
+                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('{{asset('images/images/image_2.jpg')}}');">
                         </a>
                         <div class="text p-4">
                             <div class="meta mb-2">
@@ -45,7 +45,7 @@
                 </div>
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/image_3.jpg');">
+                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('{{asset('images/images/image_3.jpg')}}');">
                         </a>
                         <div class="text p-4">
                             <div class="meta mb-2">
@@ -60,7 +60,7 @@
 
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/image_4.jpg');">
+                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('{{asset('images/images/image_4.jpg')}}');">
                         </a>
                         <div class="text p-4">
                             <div class="meta mb-2">
@@ -74,7 +74,7 @@
                 </div>
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/image_5.jpg');">
+                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('{{asset('images/images/image_5.jpg')}}');">
                         </a>
                         <div class="text p-4">
                             <div class="meta mb-2">
@@ -88,7 +88,7 @@
                 </div>
                 <div class="col-md-4 d-flex ftco-animate">
                     <div class="blog-entry align-self-stretch">
-                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/image_6.jpg');">
+                        <a href="blog-single.html" class="block-20 rounded" style="background-image: url('{{asset('images/images/image_6.jpg')}}');">
                         </a>
                         <div class="text p-4">
                             <div class="meta mb-2">

@@ -1,6 +1,6 @@
 @extends('layout.index')
 @section('content-page')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset('images/images/bg_2.jpg')}}');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
@@ -105,7 +105,7 @@
                                 </div>
                             </div>
                             <div class="col-md-5 d-flex align-items-stretch">
-                                <div class="info-wrap w-100 p-5 img" style="background-image: url(../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/img.jpg);">
+                                <div class="info-wrap w-100 p-5 img" style="background-image: url({{asset('images/images/img.jpg')}});">
                                 </div>
                             </div>
                         </div>
