@@ -848,6 +848,9 @@ select {
 .p-4 {
   padding: 1rem;
 }
+.p-5 {
+  padding: 1.25rem;
+}
 .px-0 {
   padding-left: 0px;
   padding-right: 0px;
@@ -876,6 +879,10 @@ select {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
 .pb-5 {
   padding-bottom: 1.25rem;
 }
@@ -890,6 +897,12 @@ select {
 }
 .pt-3 {
   padding-top: 0.75rem;
+}
+.pb-4 {
+  padding-bottom: 1rem;
+}
+.pt-4 {
+  padding-top: 1rem;
 }
 .text-center {
   text-align: center;

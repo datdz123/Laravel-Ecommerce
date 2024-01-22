@@ -1,34 +1,42 @@
-<div class="header">
-    <div class="navbar">
-        <div class="navbar__left">
-            <a href="index.php" class="navbar__logo">
-                <img src="./img/logo.jpg" alt="">
-            </a>
-            <div class="navbar__menu">
-                <i id="bars" class="fa fa-bars" aria-hidden="true"></i>
-                <ul>
-                    <li><a href="index.php">Trang chủ</a></li>
-                    <li><a href="index.php?page=congiong">Con giống</a></li>
-                    <li>
-                        <div style="opacity: 0.7; cursor: default;">Đơn hàng</div>
-                    </li>
-                </ul>
+<div class="wrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 d-flex align-items-center">
+                <p class="mb-0 phone pl-md-2">
+                    <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a>
+                    <a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>
+                </p>
             </div>
-        </div>
-        <div class="navbar__center">
-            <form action="" method="GET" class="navbar__search">
-                <input type="text" value="" placeholder="Nhập để tìm kiếm..." name="txtsearch" class="search" required>
-                <i class="fa fa-search" id="searchBtn"></i>
-            </form>
-        </div>
-        <div class="navbar__right">
-            <div class="login">
-                <a href="index.php?page=login"><i class="fa fa-user"></i></a>
+            <div class="col-md-6 d-flex justify-content-md-end">
+                <div class="social-media">
+                    <p class="mb-0 d-flex">
+                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                        <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
+                    </p>
+                </div>
             </div>
-            <a href="index.php?page=cart" class="navbar__shoppingCart">
-                <img src="./img/shopping-cart.svg" style="width: 24px;" alt="">
-                <span>0</span>
-            </a>
         </div>
     </div>
 </div>
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url('/') }}"><span class="flaticon-pawprint-1 mr-2"></span>Pet sitting</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="{{ url('/vet') }}" class="nav-link">Veterinarian</a></li>
+                <li class="nav-item"><a href="{{ url('/services') }}" class="nav-link">Services</a></li>
+                <li class="nav-item"><a href="{{ url('/gallery') }}" class="nav-link">Gallery</a></li>
+                <li class="nav-item"><a href="{{ url('/pricing') }}" class="nav-link">Pricing</a></li>
+                <li class="nav-item"><a href="{{ url('/blog') }}" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="{{ url('/contact') }}" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
