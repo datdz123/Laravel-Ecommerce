@@ -41,7 +41,7 @@ Route::get('/blog', function () {
 
 // Định nghĩa route cho trang contact
 Route::get('/contact', function () {
-    return view('vỉewPage.contact');
+    return view('viewPage.contact');
 });
 Route::get('/admin/login', [AdminLoginController::class, 'index'])->name('admin.login');
 
