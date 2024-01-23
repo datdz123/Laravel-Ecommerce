@@ -20,7 +20,7 @@
     <section class="content">
         <!-- Default box -->
         <div class="container-fluid">
-            <form action="{{route('categories.store')}}" method="post" name="categoryForm" id="categoryForm"
+            <form action="{{route('categories.edit')}}" method="post" name="categoryForm" id="categoryForm"
             >
                 @csrf
                 <div class="card">

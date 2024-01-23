@@ -68,7 +68,24 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
-        // code to handle the update action
+        $category = Category::find($id);
+
+        // If the category doesn't exist, redirect back with an error message
+        if (!$category) {
+            return redirect()->back()->with('error', 'Category not found');
+        }
+        // Validate the request data
+        $request->validate([
+            'name' => 'required',
+            'slug' => 'required',
+            // Add other fields as required
+        ]);
+
+        // Update the category with the request data
+        $category->update($request->all());
+
+        // Redirect back with a success message
+        return redirect()->back()->with('success', 'Category updated successfully');
     }
 
     public function delete($id)
