@@ -53,7 +53,7 @@ class CategoryController extends Controller
         return redirect()->route('categories.list')->with('success', 'Category created successfully');
     }
 
-    public function edit($id)
+    public function edit(Request $request,$id)
     {
         $category = Category::find($id);
 
@@ -61,6 +61,10 @@ class CategoryController extends Controller
         if (!$category) {
             return redirect()->back()->with('error', 'Category not found');
         }
+
+
+        // Update the category with the request data
+        $category->update($request->all());
 
         // Pass the category to the view
         return view('admin.category.edit', ['category' => $category]);
@@ -78,14 +82,32 @@ class CategoryController extends Controller
         $request->validate([
             'name' => 'required',
             'slug' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // validate the image
             // Add other fields as required
         ]);
 
         // Update the category with the request data
-        $category->update($request->all());
+        $category->update($request->except('image')); // exclude the image from the update
+
+        // If an image file is uploaded
+        if ($request->hasFile('image')) {
+            // Delete the old image from the storage
+            if ($category->image) {
+                Storage::delete('public/images/' . $category->image);
+            }
+
+            // Store the new image
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $imagePath = $request->file('image')->storeAs('public/images', $imageName);
+
+            // Update the image name in the database
+            $category->image = $imageName;
+            $category->save();
+        }
 
         // Redirect back with a success message
-        return redirect()->back()->with('success', 'Category updated successfully');
+        return redirect()->route('categories.list', $category->id)->with('success', 'Category updated successfully');
     }
 
     public function delete($id)
@@ -94,4 +116,5 @@ class CategoryController extends Controller
 
         return redirect()->route('categories.list')->with('success', 'Category deleted successfully');
     }
+
 }

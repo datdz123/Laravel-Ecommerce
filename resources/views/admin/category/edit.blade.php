@@ -20,8 +20,9 @@
     <section class="content">
         <!-- Default box -->
         <div class="container-fluid">
-            <form action="{{route('categories.edit')}}" method="post" name="categoryForm" id="categoryForm"
+            <form action="{{route('categories.update', $category->id)}}}" method="post" name="categoryForm" id="categoryForm"
             >
+                @method('PUT')
                 @csrf
                 <div class="card">
                     <div class="card-body">
@@ -45,15 +46,9 @@
                                     <input type="hidden" name="image_id" id="image_id">
                                     <label for="image">Image</label>
                                     <div id="image" class="dropzone dz-clickable  justify-content-center items-center align-content-center d-flex">
-                                        @if($category->image === null)
-                                            <div class="dz-message needsclick">
-                                                <br>hehe.<br><br>
-                                            </div>
-                                        @else
                                             <div class="dz-message needsclick currentImage">
                                                 <img class="d-none" id="currentImage" src="{{ asset('images/' . $category->image) }}" alt="Current Image">
                                             </div>
-                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -98,29 +93,7 @@
                         this.removeFile(this.files[0]);
                     }
                 });
-                if ($('#currentImage').attr('src') != '') {
-                    let mockFile = { name: "Filename", size: 100, type: 'image/jpeg' };
-
-                    // Emit addedfile event
-                    this.emit("addedfile", mockFile);
-
-                    // Set thumbnail size and emit thumbnail event
-                    this.emit("thumbnail", mockFile, $('#currentImage').attr('src'));
-
-                    // Set the desired thumbnail size
-                    let thumbnailWidth = 120;
-                    let thumbnailHeight = 120;
-
-                    // Update the width and height attributes of the img element
-                    mockFile.previewElement.querySelector('img').width = thumbnailWidth;
-                    mockFile.previewElement.querySelector('img').height = thumbnailHeight;
-
-                    // Emit complete event
-                    this.emit("complete", mockFile);
-                }
             },
-
-
             url: "{{ route('temp-images.create') }}",
             maxFiles: 1,
             paramName: 'image',
