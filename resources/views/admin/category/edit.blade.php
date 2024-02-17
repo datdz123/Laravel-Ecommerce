@@ -20,8 +20,7 @@
     <section class="content">
         <!-- Default box -->
         <div class="container-fluid">
-            <form action="{{route('categories.update', $category->id)}}}" method="post" name="categoryForm" id="categoryForm"
-            >
+            <form action="{{route('categories.update', ['category' => $category->id, 'request' => Request::all()])}}" method="post" name="categoryForm" id="categoryForm">
                 @method('PUT')
                 @csrf
                 <div class="card">
@@ -51,6 +50,11 @@
                                             </div>
                                     </div>
                                 </div>
+                                @if(!empty($category->image))
+                                    <div>
+                                        <img width="250" src="{{ asset('images/' . $category->image) }}" alt="Current Image">
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -94,7 +98,7 @@
                     }
                 });
             },
-            url: "{{ route('temp-images.create') }}",
+            url: "{{ route('categories.update',$category->id) }}",
             maxFiles: 1,
             paramName: 'image',
             addRemoveLinks: true,

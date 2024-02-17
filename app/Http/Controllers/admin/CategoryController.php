@@ -7,6 +7,7 @@ use App\Models\TempImage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Validator;
 
 
 class CategoryController extends Controller
@@ -53,61 +54,75 @@ class CategoryController extends Controller
         return redirect()->route('categories.list')->with('success', 'Category created successfully');
     }
 
-    public function edit(Request $request,$id)
+    public function edit($categoryID,Request $request)
     {
-        $category = Category::find($id);
+        $category = Category::find($categoryID);
 
         // If the category doesn't exist, redirect back with an error message
-        if (!$category) {
-            return redirect()->back()->with('error', 'Category not found');
-        }
+       if(empty($category)){
 
-
-        // Update the category with the request data
-        $category->update($request->all());
+           return redirect()->route('categories.list');
+       }
 
         // Pass the category to the view
         return view('admin.category.edit', ['category' => $category]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $categoryID)
     {
-        $category = Category::find($id);
+        $category = Category::find($categoryID);
+        if (empty($category)) {
+            return response()->json(
+                [
+                    'status'=>'false',
+                    'notFound'=>'true',
+                    'message'=>'Category not found'
+                ], 404);
+        }
 
         // If the category doesn't exist, redirect back with an error message
-        if (!$category) {
-            return redirect()->back()->with('error', 'Category not found');
-        }
+//        if (!$category) {
+//            return redirect()->back()->with('error', 'Category not found');
+//        }
         // Validate the request data
-        $request->validate([
-            'name' => 'required',
-            'slug' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048', // validate the image
-            // Add other fields as required
+        $validator=Validator::make($request->all(),[
+            'name'=>'required',
+            'slug'=>'required',
+            'image'=>'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
+        if($validator->passes()){
 
-        // Update the category with the request data
-        $category->update($request->except('image')); // exclude the image from the update
-
-        // If an image file is uploaded
-        if ($request->hasFile('image')) {
-            // Delete the old image from the storage
-            if ($category->image) {
-                Storage::delete('public/images/' . $category->image);
-            }
-
-            // Store the new image
-            $image = $request->file('image');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $imagePath = $request->file('image')->storeAs('public/images', $imageName);
-
-            // Update the image name in the database
-            $category->image = $imageName;
+            $category->name=$request->name;
+            $category->slug=$request->slug;
+            $category->status=$request->status;
             $category->save();
-        }
+            $category->update($request->all());
+            if(!empty($request->image_id)){
+                $tempImage=TempImage::find($request->image_id);
+                $extArray=explode('.',$tempImage->name);
+                $ext=last($extArray);
+                $newImageName=$category->id.'.'.$ext;
 
-        // Redirect back with a success message
-        return redirect()->route('categories.list', $category->id)->with('success', 'Category updated successfully');
+                // Delete the old image if it exists
+                if (File::exists(public_path() . '/images/' . $category->image)) {
+                    File::delete(public_path() . '/images/' . $category->image);
+                }
+
+                $category->image=$newImageName;
+                $category->save();
+                File::move(public_path() . '/tempImage/' . $tempImage->name, public_path() . '/images/' . $newImageName);
+            }
+            $request->session()->flash('success','Category updated successfully');
+            return redirect()->route('categories.edit', ['category' => $category->id]);
+
+        }
+        else{
+            return response()->json(
+                [
+                    'status'=>'false',
+                    'message'=>$validator->errors()->all()
+                ]);
+        }
     }
 
     public function delete($id)

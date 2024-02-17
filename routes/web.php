@@ -63,6 +63,7 @@ Route::group(['prefix'=>'admin'],function (){
        Route::get('/categories', [CategoryController::class,'index'])->name('categories.list');
        Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
        Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+
        Route::get('/categories/delete/{category}',[CategoryController::class,'delete'])->name('categories.delete');
        Route::delete('/categories/{category}/remove-image', [TempImagesController::class, 'removeImage'])->name('categories.removeImage');
        Route::post('/upload-temp-image', [TempImagesController::class, 'create'])->name('temp-images.create');
