@@ -20,8 +20,8 @@
     <section class="content">
         <!-- Default box -->
         <div class="container-fluid">
-            <form action="{{route('categories.store')}}" method="post" name="categoryForm" id="categoryForm"
-            >
+            <form action="{{route('categories.update', ['category' => $category->id, 'request' => Request::all()])}}" method="post" name="categoryForm" id="categoryForm">
+                @method('PUT')
                 @csrf
                 <div class="card">
                     <div class="card-body">
@@ -45,17 +45,16 @@
                                     <input type="hidden" name="image_id" id="image_id">
                                     <label for="image">Image</label>
                                     <div id="image" class="dropzone dz-clickable  justify-content-center items-center align-content-center d-flex">
-                                        @if($category->image === null)
-                                            <div class="dz-message needsclick">
-                                                <br>hehe.<br><br>
-                                            </div>
-                                        @else
                                             <div class="dz-message needsclick currentImage">
                                                 <img class="d-none" id="currentImage" src="{{ asset('images/' . $category->image) }}" alt="Current Image">
                                             </div>
-                                        @endif
                                     </div>
                                 </div>
+                                @if(!empty($category->image))
+                                    <div>
+                                        <img width="250" src="{{ asset('images/' . $category->image) }}" alt="Current Image">
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -98,30 +97,8 @@
                         this.removeFile(this.files[0]);
                     }
                 });
-                if ($('#currentImage').attr('src') != '') {
-                    let mockFile = { name: "Filename", size: 100, type: 'image/jpeg' };
-
-                    // Emit addedfile event
-                    this.emit("addedfile", mockFile);
-
-                    // Set thumbnail size and emit thumbnail event
-                    this.emit("thumbnail", mockFile, $('#currentImage').attr('src'));
-
-                    // Set the desired thumbnail size
-                    let thumbnailWidth = 120;
-                    let thumbnailHeight = 120;
-
-                    // Update the width and height attributes of the img element
-                    mockFile.previewElement.querySelector('img').width = thumbnailWidth;
-                    mockFile.previewElement.querySelector('img').height = thumbnailHeight;
-
-                    // Emit complete event
-                    this.emit("complete", mockFile);
-                }
             },
-
-
-            url: "{{ route('temp-images.create') }}",
+            url: "{{ route('categories.update',$category->id) }}",
             maxFiles: 1,
             paramName: 'image',
             addRemoveLinks: true,
