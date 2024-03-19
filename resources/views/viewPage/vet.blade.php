@@ -1,6 +1,6 @@
 @extends('layout.index')
 @section('content-page')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('{{asset('images/images/bg_2.jpg')}}');" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
@@ -18,7 +18,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/staff-1.jpg);"></div>
+                            <div class="img align-self-stretch" style="background-image: url('{{asset('images/images/staff-1.jpg')}}');"></div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
                             <h3>Lloyd Wilson</h3>
@@ -38,7 +38,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/staff-2.jpg);"></div>
+                            <div class="img align-self-stretch" style="background-image: url('{{asset('images/images/staff-2.jpg')}}');"></div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
                             <h3>Rachel Parker</h3>
@@ -58,7 +58,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/staff-3.jpg);"></div>
+                            <div class="img align-self-stretch" style="background-image: url('{{asset('images/images/staff-3.jpg')}}');"></div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
                             <h3>Ian Smith</h3>
@@ -78,7 +78,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/staff-4.jpg);"></div>
+                            <div class="img align-self-stretch" style="background-image: url('{{asset('images/images/staff-4.jpg')}}');"></div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
                             <h3>Alicia Henderson</h3>
@@ -99,7 +99,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/staff-5.jpg);"></div>
+                            <div class="img align-self-stretch" style="background-image: url('{{asset('images/images/staff-5.jpg')}}');"></div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
                             <h3>Lloyd Wilson</h3>
@@ -119,7 +119,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/staff-6.jpg);"></div>
+                            <div class="img align-self-stretch" style="background-image: url('{{asset('images/images/staff-6.jpg')}}');"></div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
                             <h3>Rachel Parker</h3>
@@ -139,7 +139,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/staff-7.jpg);"></div>
+                            <div class="img align-self-stretch" style="background-image: url('{{asset('images/images/staff-7.jpg')}}');"></div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
                             <h3>Ian Smith</h3>
@@ -159,7 +159,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(../../../../../xampp/htdocs/Laravel-Ecommerce/public/images/img/images/staff-8.jpg);"></div>
+                            <div class="img align-self-stretch" style="background-image: url('{{asset('images/images/staff-8.jpg')}}');"></div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
                             <h3>Fred Henderson</h3>
