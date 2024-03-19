@@ -28,14 +28,14 @@
         </button>
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="{{ url('/vet') }}" class="nav-link">Veterinarian</a></li>
-                <li class="nav-item"><a href="{{ url('/services') }}" class="nav-link">Services</a></li>
-                <li class="nav-item"><a href="{{ url('/gallery') }}" class="nav-link">Gallery</a></li>
-                <li class="nav-item"><a href="{{ url('/pricing') }}" class="nav-link">Pricing</a></li>
-                <li class="nav-item"><a href="{{ url('/blog') }}" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="{{ url('/contact') }}" class="nav-link">Contact</a></li>
+                <li class="nav-item {{ Request::is('/') ? 'active' : '' }}"><a href="{{ url('/') }}" class="nav-link">Home</a></li>
+                <li class="nav-item {{ Request::is('about') ? 'active' : '' }}"><a href="{{ url('/about') }}" class="nav-link">About</a></li>
+                <li class="nav-item {{ Request::is('vet') ? 'active' : '' }}"><a href="{{ url('/vet') }}" class="nav-link">Veterinarian</a></li>
+                <li class="nav-item {{ Request::is('services') ? 'active' : '' }}"><a href="{{ url('/services') }}" class="nav-link">Services</a></li>
+                <li class="nav-item {{ Request::is('gallery') ? 'active' : '' }}"><a href="{{ url('/gallery') }}" class="nav-link">Gallery</a></li>
+                <li class="nav-item {{ Request::is('pricing') ? 'active' : '' }}"><a href="{{ url('/pricing') }}" class="nav-link">Pricing</a></li>
+                <li class="nav-item {{ Request::is('blog') ? 'active' : '' }}"><a href="{{ url('/blog') }}" class="nav-link">Blog</a></li>
+                <li class="nav-item {{ Request::is('contact') ? 'active' : '' }}"><a href="{{ url('/contact') }}" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </div>
