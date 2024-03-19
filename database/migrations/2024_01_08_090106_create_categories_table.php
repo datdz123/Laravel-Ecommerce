@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug');
-            $table->string('image')->default(NULL); // Cho phép giá trị null
+            $table->string('image')->nullable(); // Allow NULL values
             $table->integer('status')->default(1);
             $table->timestamps();
         });

@@ -20,10 +20,6 @@ class CategoryController extends Controller
             return $query->where('name', 'like', '%' . $searchTerm . '%')
                 ->orWhere('slug', 'like', '%' . $searchTerm . '%');
         })->orderBy('id')->paginate($perPage = 10);
-
-
-
-
         return view('admin.category.list', ['categories' => $categories]);
     }
 
@@ -39,7 +35,6 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
         $category = Category::create($data);
         if(!empty($request->image_id)){
             $tempImage=TempImage::find($request->image_id);
