@@ -5,14 +5,13 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^7.3|^8.0",
-        "coroowicaksono/chart-js-integration": "^0.4.0",
+        "php": "^8.2.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "inertiajs/inertia-laravel": "^1.0",
         "intervention/image": "^2.7",
         "jenssegers/agent": "^2.6",
         "laravel/framework": "^8.54",
-        "laravel/nova": "~4.0",
         "laravel/tinker": "^2.5",
         "spatie/laravel-export": "^0.3.9"
     },
@@ -62,11 +61,6 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": {
-        "nova": {
-            "type": "composer",
-            "url": "https://nova.laravel.com"
-        }
-    }
+    "prefer-stable": true
+
 }
