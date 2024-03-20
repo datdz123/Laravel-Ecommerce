@@ -135,27 +135,37 @@ class CategoryController extends Controller
     {
         $delete = Category::find($id)->delete();
 
-        return redirect()->route('categories.list')->with('success', 'Category deleted successfully');
-    }
+        if ($delete) {
+            // Delete the image from the directory
+            File::delete(public_path(). '/images/img_new/thumb/' . $delete->image);
+            File::delete(public_path(). '/images/img_new/' . $delete->image);
 
-    public function destroyImage($id,Request $request){
-        $category = Category::find($id);
-        if (empty($category)) {
-            $request->session()->flash('error','Category not found');
-           return  response()->json([
-               'status'=>'false',
-               'notFound'=>'true',
-               'message'=>'Category not found'
-           ], 404);
+            // Delete the category from the database
+            $delete->delete();
 
-        }
-        File::delete(public_path(). '/images/img_new/thumb/' . $category->image);
-        File::delete(public_path(). '/images/img_new/' . $category->image);
-        $category->delete();
-        $request->session()->flash('success','Category deleted successfully');
-        return reponse()->json([
-            'status'=>'true',
-            'success'=>'Category deleted successfully']);
-    }
+            return redirect()->route('categories.list')->with('success', 'Category and its image deleted successfully');
+        } else {
+            return redirect()->route('categories.list')->with('error', 'Category not found');
+        }    }
+
+//    public function destroyImage($id,Request $request){
+//        $category = Category::find($id);
+//        if (empty($category)) {
+//            $request->session()->flash('error','Category not found');
+//           return  response()->json([
+//               'status'=>'false',
+//               'notFound'=>'true',
+//               'message'=>'Category not found'
+//           ], 404);
+//
+//        }
+//        File::delete(public_path(). '/images/img_new/thumb/' . $category->image);
+//        File::delete(public_path(). '/images/img_new/' . $category->image);
+//        $category->delete();
+//        $request->session()->flash('success','Category deleted successfully');
+//        return reponse()->json([
+//            'status'=>'true',
+//            'success'=>'Category deleted successfully']);
+//    }
 
 }
